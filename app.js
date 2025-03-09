@@ -101,7 +101,6 @@ const nums = [100, 5, 23, 15, 21, 72, 9, 45, 66, 7, 81, 90];
 const odds = []
 
 for(let i = 0; i < nums.length; i++) {
-console.log(nums[i]);
 if (nums[i] % 2 === 1)
 odds.push(nums[i])
 }
@@ -119,30 +118,33 @@ console.log('Exercise 11 result:', odds)
          it should be placed in multiple arrays. For example, the number `15`
          will appear in the `fizz`, `buzz`, and `fizzbuzz` arrays.
 Complete Exercise 12 in the space below:
-/*console.log('Exercise 12 Results:');
-console.log('  fizz:', fizz);
-console.log('  buzz:', buzz);
-console.log('  fizzbuzz:', fizzbuzz); */
+console.log('Exercise 12 Results:'); */
+
 
 const fizz = [];
 const buzz = [];
-const fizzBuzz = [];
+const fizzbuzz = [];
 
- /* for (let i = 0; i < nums.length; i++) {
+ for (let i = 0; i < nums.length; i++) {
+   let num = nums[i]
    
    if (num % 3 === 0) {
-      fizz.push(num);
+      fizz.push(num)
     }
-  
-    if (num % 5 === 0) {
-      buzz.push(num);
-    }
-    if (num % 3 === 0 && num % 5 === 0) {
-      fizzbuzz.push(num);
-    }
-  } */
 
-// NEED TO COMPLETE
+    if (num % 5 === 0) {
+      buzz.push(num)
+    }
+    
+    if (num % 3 === 0 && num % 5 === 0) {
+      fizzbuzz.push(num)
+    }
+  }
+
+  console.log('Exercise 12 Results:','fizz:', fizz);
+  console.log('buzz:', buzz);
+  console.log('fizzbuzz:', fizzbuzz);
+  
 
 /* Exercise 13: Retrieve the Last Array
 1) Assign the last nested array in the `numArrays` below to a variable named
@@ -150,18 +152,18 @@ const fizzBuzz = [];
    - Assume you don't know how many nested arrays `numArrays` contains.
    - Do not alter the original `numArrays` array.
 Complete Exercise 13 in the space below: */
-//console.log('Exercise 13 result:', numList);
-/*
+//console.log('Exercise 13 result:', numList); */
+
 const numArrays = [
 	[100, 5, 23],
 	[15, 21, 72, 9],
 	[45, 66],
 	[7, 81, 90]
+];
 
-   let numList = numArrays.length
+   let numList = numArrays[numArrays.length - 1]
    console.log('Exercise 13 result:', numList)
 
-];
 
 /* Exercise 14: Accessing within nested arrays
 1) Retrieve the number `66` from the `numArrays` array. As part of this process
@@ -170,7 +172,8 @@ const numArrays = [
 Complete Exercise 14 in the space below:
 console.log('Exercise 14 result:', num); */
 
-
+const num = numArrays[2][1]
+console.log('Exercise 14 result:', num)
 
 /* Exercise 15: Nested array sum
 1) Use nested loops or `forEach()` methods to sum up all numbers within 
@@ -180,5 +183,18 @@ Hint: Be sure to declare and initialize the total variable before the iterations
 Complete Exercise 15 in the space below:
 console.log('Exercise 15 result:\n', total); */
 
-forEach(total)
+let total = 0;
+
+console.log("Begin Overall Loop");
+for(i = 0; i < numArrays.length; i++){
+  let innerNumsArray = numArrays[i]
+  console.log("Outer Loop Run, index: ", i, "Current Array ", innerNumsArray);
+
+  for (let j = 0; j < innerNumsArray.length; j++) {
+    console.log("Inner Loop Run, index: ", j);
+    total += innerNumsArray[j];
+  }
+}
+console.log("End Overall Loop");
+
 console.log('Exercise 15 result:\n', total)
